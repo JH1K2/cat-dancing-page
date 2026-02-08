@@ -1,0 +1,107 @@
+@import '../styles/animations.css';
+
+.dancing-cat-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+}
+
+.stage {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  height: 320px;
+}
+
+.spotlight {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 280px;
+  background: radial-gradient(ellipse at top, rgba(255, 255, 150, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: spotlightPulse 2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.cat-wrapper {
+  position: relative;
+  z-index: 2;
+  margin-top: 40px;
+  animation: dance 2s ease-in-out infinite;
+  will-change: transform;
+}
+
+.cat-image {
+  width: 180px;
+  height: auto;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.4));
+}
+
+.shadow {
+  width: 120px;
+  height: 20px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  animation: shadowDance 2s ease-in-out infinite;
+  will-change: transform;
+  margin-top: -10px;
+}
+
+.music-notes {
+  display: flex;
+  gap: 1rem;
+  height: 50px;
+  align-items: flex-end;
+}
+
+.note {
+  font-size: 1.8rem;
+  color: #ffd700;
+  animation: floatNote 2s ease-out infinite;
+  will-change: transform, opacity;
+  display: inline-block;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+}
+
+/* 반응형 - 태블릿 */
+@media (max-width: 768px) {
+  .stage {
+    width: 260px;
+    height: 280px;
+  }
+
+  .cat-image {
+    width: 150px;
+  }
+
+  .shadow {
+    width: 100px;
+  }
+}
+
+/* 반응형 - 모바일 */
+@media (max-width: 480px) {
+  .stage {
+    width: 220px;
+    height: 240px;
+  }
+
+  .cat-image {
+    width: 120px;
+  }
+
+  .shadow {
+    width: 80px;
+  }
+
+  .note {
+    font-size: 1.4rem;
+  }
+}

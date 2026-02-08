@@ -1,0 +1,103 @@
+.controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  max-width: 320px;
+}
+
+.play-btn {
+  padding: 0.75rem 2rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 140px;
+  letter-spacing: 0.05em;
+}
+
+.play-btn.playing {
+  background: linear-gradient(135deg, #ff6b9d, #c44569);
+  color: white;
+  box-shadow: 0 4px 20px rgba(255, 107, 157, 0.5);
+}
+
+.play-btn.paused {
+  background: linear-gradient(135deg, #4ecdc4, #1a535c);
+  color: white;
+  box-shadow: 0 4px 20px rgba(78, 205, 196, 0.5);
+}
+
+.play-btn:hover {
+  transform: translateY(-2px) scale(1.05);
+}
+
+.play-btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.play-btn:focus-visible {
+  outline: 3px solid #ffd700;
+  outline-offset: 3px;
+}
+
+.speed-control {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+}
+
+.speed-control label {
+  min-width: 30px;
+}
+
+.speed-control input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 150px;
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.2);
+  outline: none;
+  cursor: pointer;
+}
+
+.speed-control input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #ffd700;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(255, 215, 0, 0.5);
+  transition: transform 0.2s;
+}
+
+.speed-control input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+.speed-value {
+  min-width: 35px;
+  text-align: right;
+  font-weight: bold;
+  color: #ffd700;
+}
+
+/* 반응형 - 모바일 */
+@media (max-width: 480px) {
+  .play-btn {
+    font-size: 1rem;
+    padding: 0.65rem 1.5rem;
+  }
+
+  .speed-control input[type="range"] {
+    width: 120px;
+  }
+}
